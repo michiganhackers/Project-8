@@ -2,17 +2,17 @@
 ### *RC_car + Raspberry Pi + Sensors + Tensorflow*
 
 
-Getting camera working
+↓Getting camera working
 
 ![](https://github.com/michiganhackers/Project-8/blob/master/photos/1.gif)
 
-Collecting data for training
+↓Collecting data for training
 
 ![](https://github.com/michiganhackers/Project-8/blob/master/photos/2.gif)
 
-Verifying model trained (simple lane-following)
+↓Verifying model trained (simple lane-following)
 
-![](https://github.com/michiganhackers/Project-8/blob/master/photos/2.gif)
+![](https://github.com/michiganhackers/Project-8/blob/master/photos/3.gif)
 
 
 Reference: http://docs.donkeycar.com
