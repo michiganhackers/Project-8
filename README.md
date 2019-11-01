@@ -1,4 +1,5 @@
-# Autonomous_RC_car project_8 = RC_car + Raspberry Pi + camera + driving_agent(Tensorflow)
+# Project 8: An Autonomous RC Car
+### *RC_car + Raspberry Pi + Sensors + Tensorflow*
 
 
 Getting camera working
@@ -9,4 +10,9 @@ Collecting data for training
 
 ![](https://github.com/michiganhackers/Project-8/blob/master/photos/2.gif)
 
-http://docs.donkeycar.com
+Verifying model trained (simple lane-following)
+
+![](https://github.com/michiganhackers/Project-8/blob/master/photos/2.gif)
+
+
+Reference: http://docs.donkeycar.com
