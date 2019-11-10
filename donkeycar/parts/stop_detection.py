@@ -58,3 +58,6 @@ class StopSignDetector(object):
                 self.throttle_coeff = dist_to_throttle_coeff(self.throttle_coeff, distance)
                 
         return throttle * self.throttle_coeff
+    
+    def shutdown(self):
+        pass
