@@ -6,6 +6,7 @@ class StopSignDetector(object):
         self.max_dist = 50.0            # can be any value > 30.0
         self.slow_down_dist = 30.0      # when car starts slowing down
         self.stop_dist = 10.0           # when car has to stop
+        self.stop_time = 3.0            # stop time in seconds
         self.have_stopped = False       # car has responded to the current stop sign
     
     # TODO
@@ -50,7 +51,7 @@ class StopSignDetector(object):
             if (distance <= self.stop_dist):
                 # stop immediately
                 self.throttle_coeff = 0.0
-                time.sleep(3)
+                time.sleep(self.stop_time)
                 self.throttle_coeff = 1.0
                 self.have_stopped = True
             else:
