@@ -10,20 +10,20 @@ class StopSignDetector(object):
     
     # TODO
     def stop_sign_detection(self):
-    '''
-    return 0 if no stop sign was detected, or
-    return area of largest stop sign detected.
-    '''
+        '''
+        return 0 if no stop sign was detected, or
+        return area of largest stop sign detected.
+        '''
         area = 20.0
         return area
         
     # TODO
     def area_to_dist(self, area):
-    '''
-    return self.max_dist if area is 0, or
-    return calculated distance based on area of
-    bounding box.
-    '''
+        '''
+        return self.max_dist if area is 0, or
+        return calculated distance based on area of
+        bounding box.
+        '''
         distance = 1 / area
         if (area == 0):
             distance = self.max_dist
@@ -31,16 +31,16 @@ class StopSignDetector(object):
     
     # TODO
     def dist_to_throttle_coeff(self, throttle_coeff, distance):
-    '''
-    return a new throttle coefficient based on
-    current throttle coefficient and distance
-    '''
+        '''
+        return a new throttle coefficient based on
+        current throttle coefficient and distance
+        '''
         brake = 1 / distance
         return throttle_coeff - 0.35 * brake
         
     def run(self, throttle):
         distance = area_to_dist(self.stop_sign_detection())
-        if (self.have_stopped = True):
+        if (self.have_stopped == True):
             if (distance > self.slow_down_dist):         # stop sign out of scene
                 self.have_stopped = False
             return throttle
