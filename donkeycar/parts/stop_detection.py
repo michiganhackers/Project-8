@@ -56,8 +56,10 @@ class StopSignDetector(object):
             else:
                 # apply brake based on distance
                 self.throttle_coeff = dist_to_throttle_coeff(self.throttle_coeff, distance)
-                
-        return throttle * self.throttle_coeff
+        try:
+            return throttle * self.throttle_coeff
+        except:
+            return 0.0
     
     def shutdown(self):
         pass
