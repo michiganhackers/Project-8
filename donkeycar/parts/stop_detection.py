@@ -47,7 +47,7 @@ class StopSignDetector(object):
         
         if (not self.have_stopped and distance <= self.slow_down_dist):
             # start process if stop sign in range
-            if (distance <= stop_dist):
+            if (distance <= self.stop_dist):
                 # stop immediately
                 self.throttle_coeff = 0.0
                 time.sleep(3)
