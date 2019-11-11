@@ -59,6 +59,9 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
     
     #Initialize car
     V = dk.vehicle.Vehicle()
+    
+    #add stop sign detector
+    V.add(StopSignDetector(), inputs=['throttle'], outputs=['throttle'])
 
     if camera_type == "stereo":
 
