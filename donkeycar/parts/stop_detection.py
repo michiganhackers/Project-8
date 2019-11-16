@@ -15,6 +15,7 @@ class StopSignDetector(object):
         return 0 if no stop sign was detected, or
         return area of largest stop sign detected.
         '''
+        
         area = 20.0
         return area
         
@@ -39,7 +40,8 @@ class StopSignDetector(object):
         brake = 1 / distance
         return throttle_coeff - 0.35 * brake
         
-    def run(self, throttle):
+    def run(self, throttle, image_array):
+        print(len(image_array))
 #        distance = self.area_to_dist(self.stop_sign_detection())
 #        if (self.have_stopped == True):
 #            if (distance > self.slow_down_dist):         # stop sign out of scene

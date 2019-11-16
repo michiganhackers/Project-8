@@ -416,7 +416,7 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
         
         
     #stop sign detector
-    V.add(StopSignDetector(), inputs=['throttle'], outputs=['throttle'])
+    V.add(StopSignDetector(), inputs=['throttle', 'cam/image_array'], outputs=['throttle'])
 
 
     class AiRunCondition:
