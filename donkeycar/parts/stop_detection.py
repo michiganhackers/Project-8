@@ -52,7 +52,7 @@ class StopSignDetector(object):
         return throttle_coeff - 0.35 * brake
         
     def run(self, throttle, image_array):
-        stop_sign_detection(image_array)
+        self.stop_sign_detection(image_array)
 #        try:
 #            stop_sign_detection(image_array)
 #        except:
