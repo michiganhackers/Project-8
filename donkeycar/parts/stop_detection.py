@@ -21,6 +21,8 @@ class StopSignDetector(object):
         '''
         classifier = cv2.CascadeClassifier(self.classifier)
         image_array_np = np.array(image_array)
+        print(type(image_array_np))
+        print(image_array_np.shape)
         gray = cv2.cvtColor(image_array_np, cv2.COLOR_BGR2GRAY)
         stop_signs = classifier.detectMultiScale(image=gray, scaleFactor=1.02, minNeighbors=10)
         try:
