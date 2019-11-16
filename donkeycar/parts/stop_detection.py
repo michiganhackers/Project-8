@@ -20,7 +20,8 @@ class StopSignDetector(object):
         return area of largest stop sign detected.
         '''
         classifier = cv2.CascadeClassifier(self.classifier)
-        gray = cv2.cvtColor(image_array, cv2.COLOR_BGR2GRAY)
+        image_array_np = np.array(image_array)
+        gray = cv2.cvtColor(image_array_np, cv2.COLOR_BGR2GRAY)
         stop_signs = classifier.detectMultiScale(image=gray, scaleFactor=1.02, minNeighbors=10)
         try:
             print(stop_signs)
