@@ -19,9 +19,9 @@ class StopSignDetector(object):
         return 0 if no stop sign was detected, or
         return area of largest stop sign detected.
         '''
-        classifier = cv2.CascadeClassifier(classifier)
+        clas = cv2.CascadeClassifier(classifier)
         gray = cv2.cvtColor(image_array, cv2.COLOR_BGR2GRAY)
-        stop_signs = classifier.detectMultiScale(image=gray, scaleFactor=1.02, minNeighbors=10)
+        stop_signs = clas.detectMultiScale(image=gray, scaleFactor=1.02, minNeighbors=10)
         try:
             print(stop_signs)
         except:
