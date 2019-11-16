@@ -41,23 +41,23 @@ class StopSignDetector(object):
         
     def run(self, throttle):
         print("STOP")
-        distance = self.area_to_dist(self.stop_sign_detection())
-        if (self.have_stopped == True):
-            if (distance > self.slow_down_dist):         # stop sign out of scene
-                self.have_stopped = False
-            return throttle
-        
-        if (not self.have_stopped and distance <= self.slow_down_dist):
-            # start process if stop sign in range
-            if (distance <= self.stop_dist):
-                # stop immediately
-                self.throttle_coeff = 0.0
-                time.sleep(self.stop_time)
-                self.throttle_coeff = 1.0
-                self.have_stopped = True
-            else:
-                # apply brake based on distance
-                self.throttle_coeff = dist_to_throttle_coeff(self.throttle_coeff, distance)
+#        distance = self.area_to_dist(self.stop_sign_detection())
+#        if (self.have_stopped == True):
+#            if (distance > self.slow_down_dist):         # stop sign out of scene
+#                self.have_stopped = False
+#            return throttle
+#        
+#        if (not self.have_stopped and distance <= self.slow_down_dist):
+#            # start process if stop sign in range
+#            if (distance <= self.stop_dist):
+#                # stop immediately
+#                self.throttle_coeff = 0.0
+#                time.sleep(self.stop_time)
+#                self.throttle_coeff = 1.0
+#                self.have_stopped = True
+#            else:
+#                # apply brake based on distance
+#                self.throttle_coeff = dist_to_throttle_coeff(self.throttle_coeff, distance)
         try:
             return throttle * 0.8
 #            return throttle * self.throttle_coeff
