@@ -403,6 +403,9 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
           inputs=['user/mode', 'user/angle', 'user/throttle',
                   'pilot/angle', 'pilot/throttle'], 
           outputs=['angle', 'throttle'])
+        
+    #stop sign detector
+    V.add(StopSignDetector(), inputs=['throttle'], outputs=['throttle'])
 
     
     #to give the car a boost when starting ai mode in a race.
@@ -457,9 +460,6 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
                                         max_pulse=cfg.THROTTLE_FORWARD_PWM,
                                         zero_pulse=cfg.THROTTLE_STOPPED_PWM, 
                                         min_pulse=cfg.THROTTLE_REVERSE_PWM)
-        
-        #add stop sign detector
-        V.add(StopSignDetector(), inputs=['throttle'], outputs=['throttle'])
 
         V.add(steering, inputs=['angle'])
         V.add(throttle, inputs=['throttle'])
