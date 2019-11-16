@@ -403,10 +403,6 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
           inputs=['user/mode', 'user/angle', 'user/throttle',
                   'pilot/angle', 'pilot/throttle'], 
           outputs=['angle', 'throttle'])
-        
-    #stop sign detector
-    V.add(StopSignDetector(), inputs=['throttle'], outputs=['throttle'])
-
     
     #to give the car a boost when starting ai mode in a race.
     aiLauncher = AiLaunch(cfg.AI_LAUNCH_DURATION, cfg.AI_LAUNCH_THROTTLE, cfg.AI_LAUNCH_KEEP_ENABLED)
@@ -562,6 +558,10 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
             ctr.set_button_down_trigger('cross', new_tub_dir)
         ctr.print_controls()
 
+        
+    #stop sign detector
+    V.add(StopSignDetector(), inputs=['throttle'], outputs=['throttle'])
+    
     #run the vehicle for 20 seconds
     V.start(rate_hz=cfg.DRIVE_LOOP_HZ, 
             max_loop_count=cfg.MAX_LOOPS)
