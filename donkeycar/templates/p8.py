@@ -457,12 +457,13 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
                                         max_pulse=cfg.THROTTLE_FORWARD_PWM,
                                         zero_pulse=cfg.THROTTLE_STOPPED_PWM, 
                                         min_pulse=cfg.THROTTLE_REVERSE_PWM)
-
-        V.add(steering, inputs=['angle'])
-        V.add(throttle, inputs=['throttle'])
         
         #add stop sign detector
         V.add(StopSignDetector(), inputs=['throttle'], outputs=['throttle'])
+
+        V.add(steering, inputs=['angle'])
+        V.add(throttle, inputs=['throttle'])
+
     
 
     elif cfg.DRIVE_TRAIN_TYPE == "DC_STEER_THROTTLE":
