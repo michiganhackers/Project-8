@@ -413,6 +413,10 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
 
     if isinstance(ctr, JoystickController):
         ctr.set_button_down_trigger(cfg.AI_LAUNCH_ENABLE_BUTTON, aiLauncher.enable_ai_launch)
+        
+        
+    #stop sign detector
+    V.add(StopSignDetector(), inputs=['throttle'], outputs=['throttle'])
 
 
     class AiRunCondition:

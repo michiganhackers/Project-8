@@ -62,6 +62,7 @@ class StopSignDetector(object):
             return throttle * 0.0
 #            return throttle * self.throttle_coeff
         except:
+        print("throttle adjust unsuccessful")
             return 0.0
     
     def shutdown(self):
