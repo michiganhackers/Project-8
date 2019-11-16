@@ -1,4 +1,7 @@
 import time
+import os
+import cv2
+import numpy as np
 
 class StopSignDetector(object):
     def __init__(self):
@@ -7,14 +10,22 @@ class StopSignDetector(object):
         self.slow_down_dist = 30.0      # when car starts slowing down
         self.stop_dist = 10.0           # when car has to stop
         self.stop_time = 3.0            # stop time in seconds
-        self.have_stopped = False       # car has responded to the current stop sign
+        self.have_stopped = False       # car has responded to the current stop
+        self.classifier = os.path.join(os.getcwd(), "cv/stopsign_classifier.xml")
     
     # TODO
-    def stop_sign_detection(self):
+    def stop_sign_detection(self, image_array):
         '''
         return 0 if no stop sign was detected, or
         return area of largest stop sign detected.
         '''
+        classifier = cv2.CascadeClassifier(classifier)
+        gray = cv2.cvtColor(image_array, cv2.COLOR_BGR2GRAY)
+        stop_signs = classifier.detectMultiScale(image=gray, scaleFactor=1.02, minNeighbors=10)
+        try:
+            print(stop_signs)
+        except:
+            print("no sign found")
         
         area = 20.0
         return area
@@ -48,7 +59,7 @@ class StopSignDetector(object):
         except:
             print("no image")
         
-#        distance = self.area_to_dist(self.stop_sign_detection())
+#        distance = self.area_to_dist(self.stop_sign_detection(image_array))
 #        if (self.have_stopped == True):
 #            if (distance > self.slow_down_dist):         # stop sign out of scene
 #                self.have_stopped = False
