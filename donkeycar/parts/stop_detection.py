@@ -44,6 +44,7 @@ class StopSignDetector(object):
         try:
             print(len(image_array))
             print(len(image_array[0]))
+            print(len(image_array[0][0]))
         except:
             print("no image")
         
