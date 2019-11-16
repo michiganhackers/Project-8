@@ -41,7 +41,11 @@ class StopSignDetector(object):
         return throttle_coeff - 0.35 * brake
         
     def run(self, throttle, image_array):
-        print(len(image_array))
+        try:
+            print(len(image_array))
+        except:
+            print("no image")
+        
 #        distance = self.area_to_dist(self.stop_sign_detection())
 #        if (self.have_stopped == True):
 #            if (distance > self.slow_down_dist):         # stop sign out of scene
