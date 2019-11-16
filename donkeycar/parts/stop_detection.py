@@ -43,6 +43,7 @@ class StopSignDetector(object):
     def run(self, throttle, image_array):
         try:
             print(len(image_array))
+            print(len(image_array[0]))
         except:
             print("no image")
         
