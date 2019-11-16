@@ -59,9 +59,6 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
     
     #Initialize car
     V = dk.vehicle.Vehicle()
-    
-    #add stop sign detector
-    V.add(StopSignDetector(), inputs=['throttle'], outputs=['throttle'])
 
     if camera_type == "stereo":
 
@@ -463,8 +460,9 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
 
         V.add(steering, inputs=['angle'])
         V.add(throttle, inputs=['throttle'])
-        # Messing around
-        V.add(Foo(), inputs=['throttle'], outputs=['throttle'])
+        
+        #add stop sign detector
+        V.add(StopSignDetector(), inputs=['throttle'], outputs=['throttle'])
     
 
     elif cfg.DRIVE_TRAIN_TYPE == "DC_STEER_THROTTLE":
