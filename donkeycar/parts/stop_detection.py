@@ -11,7 +11,7 @@ class StopSignDetector(object):
         self.stop_dist = 10.0           # when car has to stop
         self.stop_time = 3.0            # stop time in seconds
         self.have_stopped = False       # car has responded to the current stop
-        self.classifier = os.path.join(os.getcwd(), "cv/stopsign_classifier.xml")
+        self.classifier = os.path.join("/home/pi/projects/Project-8/donkeycar/parts/cv/stopsign_classifier.xml")
     
     # TODO
     def stop_sign_detection(self, image_array):
