@@ -51,7 +51,7 @@ class StopSignDetector(object):
         current throttle coefficient and distance
         '''
         brake = 1 / distance
-        return throttle_coeff - 0.02
+        return throttle_coeff - 0.05
         
     def run(self, throttle, image_array):
         distance = self.area_to_dist(self.stop_sign_detection(image_array))
