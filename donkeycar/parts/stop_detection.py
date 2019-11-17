@@ -39,7 +39,7 @@ class StopSignDetector(object):
         return calculated distance based on area of
         bounding box.
         '''
-        distance = max_dist
+        distance = self.max_dist
         if (area > 0):
             distance = 45.2 - 4.86 * np.log(area)
         return distance
