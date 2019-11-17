@@ -7,8 +7,8 @@ class StopSignDetector(object):
     def __init__(self):
         self.throttle_coeff = 1.0       # modify throttle
         self.max_dist = 50.0            # can be any value > 30.0
-        self.slow_down_dist = 30.0      # when car starts slowing down
-        self.stop_dist = 10.0           # when car has to stop
+        self.slow_down_dist = 12.0      # when car starts slowing down
+        self.stop_dist = 5.0            # when car has to stop
         self.stop_time = 1.0            # stop time in seconds
         self.have_stopped = False       # car has responded to the current stop
         self.classifier = os.path.join("/home/pi/projects/Project-8/donkeycar/parts/cv/stopsign_classifier.xml")
@@ -39,7 +39,7 @@ class StopSignDetector(object):
         return calculated distance based on area of
         bounding box.
         '''
-        distance = 0
+        distance = max_dist
         if (area > 0):
             distance = 45.2 - 4.86 * np.log(area)
         return distance
@@ -75,10 +75,10 @@ class StopSignDetector(object):
                 # apply brake based on distance
                 self.throttle_coeff = self.dist_to_throttle_coeff(self.throttle_coeff, distance)
                 print("Throttle_coeff: ", self.throttle_coeff)
-        print("== THROTTLE: ", throttle, " ==")
+        print("== THROTTLE: ", throttle * self.throttle_coeff, " ==")
         
         try:
-            return throttle
+            return throttle * self.throttle_coeff
         except:
             print("throttle adjustment unsuccessful")
             return 0.0
