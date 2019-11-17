@@ -19,17 +19,17 @@ class StopSignDetector(object):
         return 0 if no stop sign was detected, or
         return area of largest stop sign detected.
         '''
+        area = 0
         if image_array is not None:
             classifier = cv2.CascadeClassifier(self.classifier)
             image_array_np = np.array(image_array)
             gray = cv2.cvtColor(image_array_np, cv2.COLOR_BGR2GRAY)
             stop_signs = classifier.detectMultiScale(image=gray, scaleFactor=1.02, minNeighbors=10)
-            try:
-                print(stop_signs)
-            except:
-                print("no sign found")
-        
-        area = 20.0
+            print(len(stop_signs), "STOP signs found.")
+            for (x1, y1, x2, y2) in stop_signs:
+                area = max((x2 - x1) * (y2 - y1), area)
+            print("area: ", area)
+                
         return area
         
     # TODO
