@@ -72,9 +72,9 @@ class StopSignDetector(object):
                 self.have_stopped = True
             else:
                 # apply brake based on distance
-                print("Throttle_coeff: ", self.throttle_coeff)
                 self.throttle_coeff = self.dist_to_throttle_coeff(self.throttle_coeff, distance)
-            throttle = throttle * self.throttle_coeff
+                print("Throttle_coeff: ", self.throttle_coeff)
+                throttle = float(throttle) * self.throttle_coeff
         print("== THROTTLE: ", throttle, " ==")
         try:
             return throttle
