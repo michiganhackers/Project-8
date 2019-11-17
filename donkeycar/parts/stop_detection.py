@@ -39,9 +39,8 @@ class StopSignDetector(object):
         return calculated distance based on area of
         bounding box.
         '''
-        distance = 1 / area
-        if (area == 0):
-            distance = self.max_dist
+#        if (area == 0):
+#            distance = self.max_dist
         return 25
     
     # TODO
