@@ -76,7 +76,7 @@ class StopSignDetector(object):
         print("== THROTTLE: ", throttle * self.throttle_coeff, " ==")
         
         try:
-            return throttle * self.throttle_coeff
+            return throttle
         except:
             print("throttle adjustment unsuccessful")
             return 0.0
