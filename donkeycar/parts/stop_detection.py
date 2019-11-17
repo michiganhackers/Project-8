@@ -39,7 +39,10 @@ class StopSignDetector(object):
         return calculated distance based on area of
         bounding box.
         '''
-        return 45.2 - 4.86 * np.log(area)
+        distance = 0
+        if (area > 0):
+            distance = 45.2 - 4.86 * np.log(area)
+        return distance
     
     # TODO
     def dist_to_throttle_coeff(self, throttle_coeff, distance):
