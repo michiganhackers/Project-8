@@ -53,7 +53,6 @@ class StopSignDetector(object):
         return throttle_coeff - 0.01
         
     def run(self, throttle, image_array):
-        throttle = 1.0
         distance = self.area_to_dist(self.stop_sign_detection(image_array))
         if (self.have_stopped == True):
             if (distance > self.slow_down_dist):         # stop sign out of scene
