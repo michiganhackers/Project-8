@@ -28,7 +28,7 @@ class StopSignDetector(object):
             print(len(stop_signs), "STOP signs found.")
             for (x, y, w, h) in stop_signs:
                 area = max(w * h, area)
-            print("area: ", area)
+#            print("area: ", area)
                 
         return area
         
@@ -39,9 +39,7 @@ class StopSignDetector(object):
         return calculated distance based on area of
         bounding box.
         '''
-#        if (area == 0):
-#            distance = self.max_dist
-        return 25
+        return 45.2 - 4.86 * np.log(area)
     
     # TODO
     def dist_to_throttle_coeff(self, throttle_coeff, distance):
@@ -54,6 +52,7 @@ class StopSignDetector(object):
         
     def run(self, throttle, image_array):
         distance = self.area_to_dist(self.stop_sign_detection(image_array))
+        print("-- Distance: ", distance)
         if (self.have_stopped == True):
             if (distance > self.slow_down_dist):         # stop sign out of scene
                 self.have_stopped = False
