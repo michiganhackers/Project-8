@@ -9,7 +9,7 @@ class StopSignDetector(object):
         self.max_dist = 50.0            # can be any value > 30.0
         self.slow_down_dist = 12.0      # when car starts slowing down
         self.stop_dist = 7.0            # when car has to stop
-        self.stop_time = 1.0            # stop time in seconds
+        self.stop_time = 3.0            # stop time in seconds
         self.have_stopped = False       # car has responded to the current stop
         self.classifier = os.path.join("/home/pi/projects/Project-8/donkeycar/parts/cv/stopsign_classifier.xml")
     
