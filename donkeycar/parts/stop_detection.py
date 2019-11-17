@@ -53,7 +53,7 @@ class StopSignDetector(object):
         return throttle_coeff - 0.01
         
     def run(self, throttle, image_array):
-    
+        throttle = 1.0
         distance = self.area_to_dist(self.stop_sign_detection(image_array))
         if (self.have_stopped == True):
             if (distance > self.slow_down_dist):         # stop sign out of scene
@@ -74,10 +74,10 @@ class StopSignDetector(object):
                 # apply brake based on distance
                 self.throttle_coeff = self.dist_to_throttle_coeff(self.throttle_coeff, distance)
                 print("Throttle_coeff: ", self.throttle_coeff)
-                throttle = float(throttle) * self.throttle_coeff
-        print("== THROTTLE: ", throttle, " ==")
+        print("== THROTTLE: ", throttle * self.throttle_coeff, " ==")
+        
         try:
-            return throttle
+            return throttle * self.throttle_coeff
         except:
             print("throttle adjustment unsuccessful")
             return 0.0
