@@ -26,8 +26,8 @@ class StopSignDetector(object):
             gray = cv2.cvtColor(image_array_np, cv2.COLOR_BGR2GRAY)
             stop_signs = classifier.detectMultiScale(image=gray, scaleFactor=1.02, minNeighbors=10)
             print(len(stop_signs), "STOP signs found.")
-            for (x1, y1, x2, y2) in stop_signs:
-                area = max((x2 - x1) * (y2 - y1), area)
+            for (x, y, w, h) in stop_signs:
+                area = max(w * h, area)
             print("area: ", area)
                 
         return area
