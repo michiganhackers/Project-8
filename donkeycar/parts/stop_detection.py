@@ -9,7 +9,7 @@ class StopSignDetector(object):
         self.max_dist = 50.0            # can be any value > 30.0
         self.slow_down_dist = 30.0      # when car starts slowing down
         self.stop_dist = 10.0           # when car has to stop
-        self.stop_time = 3.0            # stop time in seconds
+        self.stop_time = 1.0            # stop time in seconds
         self.have_stopped = False       # car has responded to the current stop
         self.classifier = os.path.join("/home/pi/projects/Project-8/donkeycar/parts/cv/stopsign_classifier.xml")
     
@@ -42,7 +42,7 @@ class StopSignDetector(object):
         distance = 1 / area
         if (area == 0):
             distance = self.max_dist
-        return distance
+        return 25
     
     # TODO
     def dist_to_throttle_coeff(self, throttle_coeff, distance):
@@ -51,37 +51,37 @@ class StopSignDetector(object):
         current throttle coefficient and distance
         '''
         brake = 1 / distance
-        return throttle_coeff - 0.35 * brake
+        return throttle_coeff - 0.01
         
     def run(self, throttle, image_array):
-        self.stop_sign_detection(image_array)
-#        try:
-#            stop_sign_detection(image_array)
-#        except:
-#            print("no image")
+    
+        distance = self.area_to_dist(self.stop_sign_detection(image_array))
+        if (self.have_stopped == True):
+            if (distance > self.slow_down_dist):         # stop sign out of scene
+                self.have_stopped = False
+            return throttle
+
+        if (not self.have_stopped and distance <= self.slow_down_dist):
+            # start process if stop sign in range
+            if (distance <= self.stop_dist):
+                # stop immediately
+                self.throttle_coeff = 0.0
+                print("Sleeping...")
+                time.sleep(self.stop_time)
+                print("Wake up!")
+                self.throttle_coeff = 1.0
+                self.have_stopped = True
+            else:
+                # apply brake based on distance
+                print("Throttle_coeff: ", self.throttle_coeff)
+                self.throttle_coeff = dist_to_throttle_coeff(self.throttle_coeff, distance)
         
-#        distance = self.area_to_dist(self.stop_sign_detection(image_array))
-#        if (self.have_stopped == True):
-#            if (distance > self.slow_down_dist):         # stop sign out of scene
-#                self.have_stopped = False
-#            return throttle
-#
-#        if (not self.have_stopped and distance <= self.slow_down_dist):
-#            # start process if stop sign in range
-#            if (distance <= self.stop_dist):
-#                # stop immediately
-#                self.throttle_coeff = 0.0
-#                time.sleep(self.stop_time)
-#                self.throttle_coeff = 1.0
-#                self.have_stopped = True
-#            else:
-#                # apply brake based on distance
-#                self.throttle_coeff = dist_to_throttle_coeff(self.throttle_coeff, distance)
+        
+        print("== THROTTLE: ", throttle * self.throttle_coeff, " ==")
         try:
-            return throttle * 0.20
-#            return throttle * self.throttle_coeff
+            return throttle * self.throttle_coeff
         except:
-            print("throttle adjust unsuccessful")
+            print("throttle adjustment unsuccessful")
             return 0.0
     
     def shutdown(self):
