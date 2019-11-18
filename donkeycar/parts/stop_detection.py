@@ -11,6 +11,7 @@ class StopSignDetector(object):
         self.stop_dist = 11.0           # when car has to stop
         self.stop_time = 2.5            # stop time in seconds
         self.have_stopped = False       # car has responded to the current stop
+        self.to_sleep = False           # need to sleep this time
         self.classifier = os.path.join("/home/pi/projects/Project-8/donkeycar/parts/cv/stopsign_classifier.xml")
     
     # TODO
@@ -57,6 +58,14 @@ class StopSignDetector(object):
     def run(self, throttle, image_array):
         distance = self.area_to_dist(self.stop_sign_detection(image_array))
         print("-- Distance: ", distance)
+        if (self.to_sleep == True):
+            print("Sleeping...")
+            time.sleep(self.stop_time)
+            print("Wake up!")
+            self.throttle_coeff = 1.0
+            self.have_stopped = True
+            self.to_sleep = False
+            
         if (self.have_stopped == True):
             if (distance > self.slow_down_dist):         # stop sign out of scene
                 self.have_stopped = False
@@ -67,11 +76,7 @@ class StopSignDetector(object):
             if (distance <= self.stop_dist):
                 # stop immediately
                 self.throttle_coeff = 0.0
-                print("Sleeping...")
-                time.sleep(self.stop_time)
-                print("Wake up!")
-                self.throttle_coeff = 1.0
-                self.have_stopped = True
+                self.to_sleep = True
 #            else:
 #                # apply brake based on distance
 #                self.throttle_coeff = self.dist_to_throttle_coeff(self.throttle_coeff, distance)
