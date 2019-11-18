@@ -30,6 +30,7 @@ class StopSignDetector(object):
             for (x, y, w, h) in stop_signs:
                 area = max(w * h, area)
             print("area: ", area)
+            print("x: ", x, " | y: ", y " | w: ", w, " | h: ", h)
                 
         return area
         
