@@ -14,5 +14,7 @@
 
 ![](https://github.com/michiganhackers/Project-8/blob/master/photos/3.gif)
 
+↓Responding to a stop sign (details of this feature are found in "donkeycar/parts/stop_detection.py")
 
-Reference: http://docs.donkeycar.com
+![](https://github.com/michiganhackers/Project-8/blob/master/photos/4.gif)
+
