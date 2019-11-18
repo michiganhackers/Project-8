@@ -60,7 +60,7 @@ class StopSignDetector(object):
         print("-- Distance: ", distance)
         if (self.to_sleep == True):
             print("Sleeping...")
-            time.sleep(self.stop_time)
+#            time.sleep(self.stop_time)
             print("Wake up!")
             self.throttle_coeff = 1.0
             self.have_stopped = True
@@ -71,7 +71,7 @@ class StopSignDetector(object):
                 self.have_stopped = False
             return throttle
 
-        if (not self.have_stopped and distance <= self.slow_down_dist):
+        if (distance <= self.slow_down_dist):
             # start process if stop sign in range
             if (distance <= self.stop_dist):
                 # stop immediately
