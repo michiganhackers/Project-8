@@ -28,10 +28,12 @@ class EmergencyBrake(object):
      
         # save StartTime
         while GPIO.input(self.GPIO_ECHO) == 0:
+            print("start")
             StartTime = time.time()
 
         # save time of arrival
         while GPIO.input(self.GPIO_ECHO) == 1:
+            print("end")
             StopTime = time.time()
      
         # time difference between start and arrival
