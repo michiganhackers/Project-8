@@ -28,6 +28,7 @@ from donkeycar.parts.controller import LocalWebController, JoystickController
 from donkeycar.parts.throttle_filter import ThrottleFilter
 from donkeycar.parts.behavior import BehaviorPart
 from donkeycar.parts.stop_detection import StopSignDetector
+from donkeycar.parts.emergency_brake import EmergencyBrake
 from donkeycar.parts.file_watcher import FileWatcher
 from donkeycar.parts.launch import AiLaunch
 from donkeycar.parts.foo import Foo
@@ -417,6 +418,9 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
         
     #stop sign detector
     V.add(StopSignDetector(), inputs=['throttle', 'cam/image_array'], outputs=['throttle'])
+    
+    #emergency
+    V.add(EmergencyBrake(), inputs=['throttle'], outputs=['throttle'])
 
 
     class AiRunCondition:
