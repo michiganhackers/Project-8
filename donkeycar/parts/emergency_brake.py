@@ -47,6 +47,7 @@ class EmergencyBrake(object):
         return stop
     
     def run(self, throttle):
+        print("EMERGENCY")
         stop = self.judge()
         if (stop == True):
             self.throttle_coeff = 0.0
