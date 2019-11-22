@@ -6,7 +6,6 @@ class EmergencyBrake(object):
     def __init__(self):
         self.throttle_coeff = 1.0
         self.stop_distance = 100
-        stop = False
         #set GPIO Pins
         self.GPIO_TRIGGER = 18
         self.GPIO_ECHO = 24
@@ -47,6 +46,7 @@ class EmergencyBrake(object):
     
     def judge(self):
         dist = self.distance()
+        stop = False
         if (dist < self.stop_distance):
             stop = True
         return stop
