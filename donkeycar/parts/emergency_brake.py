@@ -21,7 +21,7 @@ class EmergencyBrake(object):
         GPIO.output(self.GPIO_TRIGGER, True)
      
         # set Trigger after 0.01ms to LOW
-        time.sleep(0.00001)
+        time.sleep(0.001)
         GPIO.output(self.GPIO_TRIGGER, False)
      
         StartTime = time.time()
@@ -30,7 +30,7 @@ class EmergencyBrake(object):
 #        # save StartTime
 #        while GPIO.input(self.GPIO_ECHO) == 0:
 #            StartTime = time.time()
-#     
+#
 #        # save time of arrival
 #        while GPIO.input(self.GPIO_ECHO) == 1:
 #            StopTime = time.time()
