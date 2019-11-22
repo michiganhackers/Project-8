@@ -12,6 +12,9 @@ class EmergencyBrake(object):
         self.GPIO_ECHO = 24
         #GPIO Mode (BOARD / BCM)
         GPIO.setmode(GPIO.BCM)
+        #set GPIO direction (IN / OUT)
+        GPIO.setup(self.GPIO_TRIGGER, GPIO.OUT)
+        GPIO.setup(self.GPIO_ECHO, GPIO.IN)
         
     def distance(self):
         # set Trigger to HIGH
