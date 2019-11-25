@@ -424,7 +424,7 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
     V.add(Ultrasonic_Sensor(), outputs=['distance'])
     
     #Brake
-    V.add(EmergencyBrake(), inputs=['throttle','distance'], outputs=['throttle'])
+    V.add(EmergencyBrake(), inputs=['throttle', 'distance'], outputs=['throttle'])
     
 
 
