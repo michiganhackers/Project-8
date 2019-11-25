@@ -43,7 +43,7 @@ class Ultrasonic_Sensor(self, GPIO_TRIGGER = 18, GPIO_ECHO = 24):
      
         return distance
     
-    def run(self, throttle):
+    def run(self):
         return distance()
         
             
