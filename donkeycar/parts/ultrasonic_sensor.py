@@ -1,9 +1,9 @@
 import RPi.GPIO as GPIO
 import time
 
-class Ultrasonic_Sensor(self, GPIO_TRIGGER = 18, GPIO_ECHO = 24):
+class Ultrasonic_Sensor(object):
     
-    def __init__(self):
+    def __init__(self, GPIO_TRIGGER=18, GPIO_ECHO=24):
         #set GPIO Pins
         self.GPIO_TRIGGER = GPIO_TRIGGER
         self.GPIO_ECHO = GPIO_ECHO
