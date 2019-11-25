@@ -420,10 +420,12 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
     #stop sign detector
     V.add(StopSignDetector(), inputs=['throttle', 'cam/image_array'], outputs=['throttle'])
     
-    #Brake
-    #V.add(EmergencyBrake(), inputs=['throttle'], outputs=['throttle'])
     #Ultrasonic Sensor
     V.add(Ultrasonic_Sensor(), outputs=['distance'])
+    
+    #Brake
+    V.add(EmergencyBrake(), inputs=['throttle','distance'], outputs=['throttle'])
+    
 
 
     class AiRunCondition:
