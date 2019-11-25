@@ -28,7 +28,6 @@ from donkeycar.parts.controller import LocalWebController, JoystickController
 from donkeycar.parts.throttle_filter import ThrottleFilter
 from donkeycar.parts.behavior import BehaviorPart
 from donkeycar.parts.stop_detection import StopSignDetector
-from donkeycar.parts.emergency_brake import EmergencyBrake
 from donkeycar.parts.ultrasonic_sensor import Ultrasonic_Sensor
 from donkeycar.parts.file_watcher import FileWatcher
 from donkeycar.parts.launch import AiLaunch
@@ -420,15 +419,11 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
     #stop sign detector
     V.add(StopSignDetector(), inputs=['throttle', 'cam/image_array'], outputs=['throttle'])
     
+    #Ultrasonic Sensor
     
-    #emergency
-    #V.add(EmergencyBrake(), inputs=['throttle'], outputs=['throttle'])
+    V.add(Ultrasonic_Sensor(), outputs=['distance'])
 
-    #ultrasonic_sensor
-    #V.add(Ultrasonic_Sensor(), outputs=['distance'])
-    
-    
-    
+
     class AiRunCondition:
         '''
         A bool part to let us know when ai is running.
