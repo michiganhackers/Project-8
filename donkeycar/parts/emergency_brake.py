@@ -7,7 +7,7 @@ class EmergencyBrake(object):
         self.throttle_coeff = 1.0
         self.stop_distance = 100
         #set GPIO Pins
-        self.GPIO_TRIGGER = 23
+        self.GPIO_TRIGGER = 18
         self.GPIO_ECHO = 24
         #GPIO Mode (BOARD / BCM)
         GPIO.setmode(GPIO.BCM)

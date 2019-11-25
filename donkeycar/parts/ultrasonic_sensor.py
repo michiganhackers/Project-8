@@ -26,7 +26,7 @@ class Ultrasonic_Sensor(object):
 
         count = 0
         # save StartTime
-        while GPIO.input(self.GPIO_ECHO) == 0 and count < 140:
+        while GPIO.input(self.GPIO_ECHO) == 0 and count < 260:
             count += 1
             StartTime = time.time()
 
