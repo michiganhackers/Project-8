@@ -40,7 +40,7 @@ class EmergencyBrake(object):
         TimeElapsed = StopTime - StartTime
         # multiply with the sonic speed (34300 cm/s)
         # and divide by 2, because there and back
-        distance = (TimeElapsed * 34300) / 2
+        distance = (-TimeElapsed * 34300) / 2
         print("d: ", distance)
      
         return distance
