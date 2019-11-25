@@ -8,7 +8,7 @@ class EmergencyBrake(object):
         self.stop_distance = 100
         #set GPIO Pins
         self.GPIO_TRIGGER = 18
-        self.GPIO_ECHO = 24
+        self.GPIO_ECHO = 23
         #GPIO Mode (BOARD / BCM)
         GPIO.setmode(GPIO.BCM)
         #set GPIO direction (IN / OUT)
