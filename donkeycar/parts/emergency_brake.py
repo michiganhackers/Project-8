@@ -8,7 +8,7 @@ class EmergencyBrake(object):
         self.stop_distance = 100
     def judge(self):
         stop = False
-        if (self.distance < self.stop_distance):
+        if (distance < self.stop_distance):
             stop = True
         return stop
     
