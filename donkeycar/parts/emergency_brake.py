@@ -31,8 +31,8 @@ class EmergencyBrake(object):
         while GPIO.input(self.GPIO_ECHO) == 0:
             count += 1
             StartTime = time.time()
-            
-        #print("c: ", count)
+            print("c: ", count)
+        
         # save time of arrival
         while GPIO.input(self.GPIO_ECHO) == 1:
             StopTime = time.time()
