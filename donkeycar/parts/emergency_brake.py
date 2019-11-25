@@ -7,7 +7,8 @@ class EmergencyBrake(object):
         self.throttle_coeff = 1.0
         self.stop_distance = 100
     
-    def judge(self):
+    def judge(self,dist):
+        distance = dist
         stop = False
         if (distance < self.stop_distance):
             stop = True
@@ -16,7 +17,7 @@ class EmergencyBrake(object):
     def run(self, throttle, dist):
         distance = dist
         print("EMERGENCY")
-        stop = self.judge()
+        stop = self.judge(distance)
         if (stop == True):
             self.throttle_coeff = 0.0
         else:
