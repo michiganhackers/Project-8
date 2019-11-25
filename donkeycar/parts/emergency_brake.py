@@ -31,13 +31,15 @@ class EmergencyBrake(object):
         while GPIO.input(self.GPIO_ECHO) == 0 and count < 140:
             count += 1
             StartTime = time.time()
-
+            
+        print("c: ", count)
         # save time of arrival
         while GPIO.input(self.GPIO_ECHO) == 1:
             StopTime = time.time()
      
         # time difference between start and arrival
         TimeElapsed = StopTime - StartTime
+        print("TimeElapsed: ", TimeElapsed)
         # multiply with the sonic speed (34300 cm/s)
         # and divide by 2, because there and back
         distance = (TimeElapsed * 34300) / 2
