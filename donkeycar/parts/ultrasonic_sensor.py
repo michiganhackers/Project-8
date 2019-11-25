@@ -44,7 +44,7 @@ class Ultrasonic_Sensor(object):
         return distance
     
     def run(self):
-        return distance()
+        return self.distance()
         
             
             
