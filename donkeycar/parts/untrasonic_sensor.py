@@ -1,14 +1,12 @@
 import RPi.GPIO as GPIO
 import time
 
-class EmergencyBrake(object):
+class Ultrasonic_Sensor(self, GPIO_TRIGGER = 18, GPIO_ECHO = 24):
     
     def __init__(self):
-        self.throttle_coeff = 1.0
-        self.stop_distance = 100
         #set GPIO Pins
-        self.GPIO_TRIGGER = 18
-        self.GPIO_ECHO = 24
+        self.GPIO_TRIGGER = GPIO_TRIGGER
+        self.GPIO_ECHO = GPIO_ECHO
         #GPIO Mode (BOARD / BCM)
         GPIO.setmode(GPIO.BCM)
         #set GPIO direction (IN / OUT)
@@ -45,21 +43,9 @@ class EmergencyBrake(object):
      
         return distance
     
-    def judge(self):
-        dist = self.distance()
-        stop = False
-        if (dist < self.stop_distance):
-            stop = True
-        return stop
-    
     def run(self, throttle):
-        print("EMERGENCY")
-        stop = self.judge()
-        if (stop == True):
-            self.throttle_coeff = 0.0
-        else:
-            self.throttle_coeff = 1.0
-        return throttle * self.throttle_coeff
+        return distance()
+        
             
             
         
