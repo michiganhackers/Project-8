@@ -292,7 +292,7 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
         try:
             ctr.set_button_down_trigger('L1', bh.increment_state)
         except:
-            ctr.set_state(0)
+            bh.set_state(0)
             
 
         inputs = [inf_input, "behavior/one_hot_state_array"]  
