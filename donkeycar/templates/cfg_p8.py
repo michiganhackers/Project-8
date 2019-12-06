@@ -158,7 +158,7 @@ LED_PIN_B = 26
 #LED status color, 0-100
 LED_R = 0
 LED_G = 0
-LED_B = 1
+LED_B = 100
 
 #LED Color for record count indicator
 REC_COUNT_ALERT = 1000          #how many records before blinking alert
