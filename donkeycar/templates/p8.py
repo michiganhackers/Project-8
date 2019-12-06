@@ -289,13 +289,11 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
     if cfg.TRAIN_BEHAVIORS:
         bh = BehaviorPart(cfg.BEHAVIOR_LIST)
         V.add(bh, outputs=['behavior/state', 'behavior/label', "behavior/one_hot_state_array"])
-        bh.set_state(0)
+        bh.set_state(1)
 #        try:
 #            ctr.set_button_down_trigger('L1', bh.increment_state)
 #        except:
 #            bh.set_state(1)
-            
-
         inputs = [inf_input, "behavior/one_hot_state_array"]  
     #IMU
     elif model_type == "imu":
