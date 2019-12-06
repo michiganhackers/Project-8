@@ -146,14 +146,14 @@ HAVE_SOMBRERO = False           #set to true when using the sombrero hat from th
 RECORD_DURING_AI = False        #normally we do not record during ai mode. Set this to true to get image and steering records for your Ai. Be careful not to use them to train.
 
 #LED
-HAVE_RGB_LED = False            #do you have an RGB LED like https://www.amazon.com/dp/B07BNRZWNF
+HAVE_RGB_LED = True            #do you have an RGB LED like https://www.amazon.com/dp/B07BNRZWNF
 LED_INVERT = False              #COMMON ANODE? Some RGB LED use common anode. like https://www.amazon.com/Xia-Fly-Tri-Color-Emitting-Diffused/dp/B07MYJQP8B
 
 #LED board pin number for pwm outputs
 #These are physical pinouts. See: https://www.raspberrypi-spy.co.uk/2012/06/simple-guide-to-the-rpi-gpio-header-and-pins/
-LED_PIN_R = 12      
-LED_PIN_G = 10
-LED_PIN_B = 16
+LED_PIN_R = 13
+LED_PIN_G = 19
+LED_PIN_B = 26
 
 #LED status color, 0-100
 LED_R = 0
@@ -184,8 +184,8 @@ MODEL_RELOADED_LED_B = 0
 #BEHAVIORS
 #When training the Behavioral Neural Network model, make a list of the behaviors,
 #Set the TRAIN_BEHAVIORS = True, and use the BEHAVIOR_LED_COLORS to give each behavior a color
-TRAIN_BEHAVIORS = False
-BEHAVIOR_LIST = ['Left_Lane', "Right_Lane"]
+TRAIN_BEHAVIORS = True
+BEHAVIOR_LIST = ["Left_Only", "Right_Only"]
 BEHAVIOR_LED_COLORS =[ (0, 10, 0), (10, 0, 0) ] #RGB tuples 0-100 per chanel
 
 #Localizer
