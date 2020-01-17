@@ -459,6 +459,7 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
         pass
 
     elif cfg.DRIVE_TRAIN_TYPE == "SERVO_ESC":
+        pass
 #        from donkeycar.parts.actuator import PCA9685, PWMSteering, PWMThrottle
 #
 #        steering_controller = PCA9685(cfg.STEERING_CHANNEL, cfg.PCA9685_I2C_ADDR, busnum=cfg.PCA9685_I2C_BUSNUM)
