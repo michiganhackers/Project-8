@@ -36,11 +36,11 @@ class Ultrasonic_Sensor(object):
             StopTime = time.time()
         # time difference between start and arrival
         TimeElapsed = StopTime - StartTime
-        print(TimeElapsed)
+        #print(TimeElapsed)
         # multiply with the sonic speed (34300 cm/s)
         # and divide by 2, because there and back
         distance = (TimeElapsed * 34300) / 2
-        print("Distance",self.NUM,": ", distance)
+        print("Distance",self.NUM,": ",distance)
      
         return distance
     
