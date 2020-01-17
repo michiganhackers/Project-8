@@ -459,19 +459,19 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
         pass
 
     elif cfg.DRIVE_TRAIN_TYPE == "SERVO_ESC":
-        from donkeycar.parts.actuator import PCA9685, PWMSteering, PWMThrottle
-
-        steering_controller = PCA9685(cfg.STEERING_CHANNEL, cfg.PCA9685_I2C_ADDR, busnum=cfg.PCA9685_I2C_BUSNUM)
-        steering = PWMSteering(controller=steering_controller,
-                                        left_pulse=cfg.STEERING_LEFT_PWM, 
-                                        right_pulse=cfg.STEERING_RIGHT_PWM)
-        
-        throttle_controller = PCA9685(cfg.THROTTLE_CHANNEL, cfg.PCA9685_I2C_ADDR, busnum=cfg.PCA9685_I2C_BUSNUM)
-        throttle = PWMThrottle(controller=throttle_controller,
-                                        max_pulse=cfg.THROTTLE_FORWARD_PWM,
-                                        zero_pulse=cfg.THROTTLE_STOPPED_PWM, 
-                                        min_pulse=cfg.THROTTLE_REVERSE_PWM)
-
+#        from donkeycar.parts.actuator import PCA9685, PWMSteering, PWMThrottle
+#
+#        steering_controller = PCA9685(cfg.STEERING_CHANNEL, cfg.PCA9685_I2C_ADDR, busnum=cfg.PCA9685_I2C_BUSNUM)
+#        steering = PWMSteering(controller=steering_controller,
+#                                        left_pulse=cfg.STEERING_LEFT_PWM,
+#                                        right_pulse=cfg.STEERING_RIGHT_PWM)
+#
+#        throttle_controller = PCA9685(cfg.THROTTLE_CHANNEL, cfg.PCA9685_I2C_ADDR, busnum=cfg.PCA9685_I2C_BUSNUM)
+#        throttle = PWMThrottle(controller=throttle_controller,
+#                                        max_pulse=cfg.THROTTLE_FORWARD_PWM,
+#                                        zero_pulse=cfg.THROTTLE_STOPPED_PWM,
+#                                        min_pulse=cfg.THROTTLE_REVERSE_PWM)
+#
 #        V.add(steering, inputs=['angle'])
 #        V.add(throttle, inputs=['throttle'])
 # Foo
