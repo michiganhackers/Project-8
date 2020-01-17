@@ -472,8 +472,9 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
                                         zero_pulse=cfg.THROTTLE_STOPPED_PWM, 
                                         min_pulse=cfg.THROTTLE_REVERSE_PWM)
 
-        V.add(steering, inputs=['angle'])
-        V.add(throttle, inputs=['throttle'])
+#        V.add(steering, inputs=['angle'])
+#        V.add(throttle, inputs=['throttle'])
+# Foo
 
     
 
