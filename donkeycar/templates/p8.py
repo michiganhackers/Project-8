@@ -421,7 +421,9 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
     V.add(StopSignDetector(), inputs=['throttle', 'cam/image_array'], outputs=['throttle'])
     
     #Ultrasonic Sensor
-    V.add(Ultrasonic_Sensor(GPIO_TRIGGER=18, GPIO_ECHO=24,NUM=1), outputs=['distance1'])
+    V.add(Ultrasonic_Sensor(GPIO_TRIGGER=27, GPIO_ECHO=17,NUM=1), outputs=['distance1'])
+    V.add(Ultrasonic_Sensor(GPIO_TRIGGER=6, GPIO_ECHO=5,NUM=2), outputs=['distance2'])
+    V.add(Ultrasonic_Sensor(GPIO_TRIGGER=26, GPIO_ECHO=19,NUM=3), outputs=['distance3'])
     
     #Brake
     V.add(EmergencyBrake(), inputs=['throttle', 'distance1'], outputs=['throttle'])
