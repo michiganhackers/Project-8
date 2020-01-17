@@ -3,8 +3,9 @@ import time
 
 class Ultrasonic_Sensor(object):
     
-    def __init__(self, GPIO_TRIGGER=18, GPIO_ECHO=24):
+    def __init__(self, GPIO_TRIGGER=18, GPIO_ECHO=24,NUM=1):
         #set GPIO Pins
+        self.NUM = NUM
         self.GPIO_TRIGGER = GPIO_TRIGGER
         self.GPIO_ECHO = GPIO_ECHO
         #GPIO Mode (BOARD / BCM)
@@ -39,7 +40,7 @@ class Ultrasonic_Sensor(object):
         # multiply with the sonic speed (34300 cm/s)
         # and divide by 2, because there and back
         distance = (TimeElapsed * 34300) / 2
-        print("Distance",self.GPIO_TRIGGER,": ", distance)
+        print("Distance",NUM,": ", distance)
      
         return distance
     
