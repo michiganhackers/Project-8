@@ -27,7 +27,7 @@ from donkeycar.parts.datastore import TubHandler
 from donkeycar.parts.controller import LocalWebController, JoystickController
 from donkeycar.parts.throttle_filter import ThrottleFilter
 from donkeycar.parts.behavior import BehaviorPart
-
+from donkeycar.parts.stop_detection import StopSignDetector
 from donkeycar.parts.file_watcher import FileWatcher
 from donkeycar.parts.launch import AiLaunch
 from donkeycar.parts.foo import Foo
